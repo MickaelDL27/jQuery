@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huiswerk les 25</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="CSS/stijl.css">
+</head>
+<body>
+    <h1>Welkom bij mijn jQuery toepassing</h1>
+    <p>Voer een tekst in en klik op de knop om te tekst te tonen:</p>
+    <input type="text" id="inputTekst" placeholder="Typ hier je tekst">
+    <button id="toonTekst">Toon tekst</button>
+    <div class="output" id="outputDiv"></div>
+    <script>
+        $(document).ready(function()
+        {
+            $("#toonTekst").click(function()
+            {
+                gebruikerInput = $("#inputTekst").val();
+                if(gebruikerInput.trim() === "")
+                {
+                    $("#outputDiv").text("Voer alsjeblieft een tekst in.").fadeIn();
+                }
+                else
+                {
+                    $("#outputDiv").text(gebruikerInput).fadeIn();
+                }
+            });
+            $("#inputTekst").on("input", function()
+            {
+                $("#outputDiv").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
